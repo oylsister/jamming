@@ -1,0 +1,19 @@
+.App {
+  text-align: center;
+}
+
+.App-name {
+  padding: 20px 0px 20px 0px;
+  margin: 0px;
+  font-size: 45px;
+  color: white;
+}
+
+.App-name-black {
+  color: rgb(118, 59, 255);
+}
+
+.App-title {
+  margin: 0px;
+  background-color: rgb(22, 36, 85);
+}
