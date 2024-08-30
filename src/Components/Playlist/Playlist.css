@@ -1,0 +1,14 @@
+.Playlist {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(42, 50, 165);
+    min-width: 300px;
+    max-width: 450px;
+    margin-left: 50px;
+}
+
+.title {
+    text-align: left;
+    font-size: 35px;
+    margin: 0px;
+}

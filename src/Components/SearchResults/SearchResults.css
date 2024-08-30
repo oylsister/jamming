@@ -1,0 +1,14 @@
+.SearchResults {
+    display: flex;
+    flex-direction: column;
+    background-color: brown;
+    min-width: 300px;
+    max-width: 450px;
+    margin-right: 50px;
+}
+
+.title {
+    text-align: left;
+    font-size: 35px;
+    margin: 0px;
+}
