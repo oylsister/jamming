@@ -1,0 +1,28 @@
+.Track {
+    display: flex;
+    flex-direction: row;
+    background-color: aquamarine;
+    max-width: 500px;
+    justify-content: space-between;
+
+    border-bottom: 2px solid black;
+}
+
+.track-info {
+    padding-left: 12px;
+    text-align: left;
+}
+
+.track-action {
+    padding-right: 19px;
+    padding-left: 19px;
+    font-size: 30px;
+    border-style: none;
+    background-color: rgba(0, 0, 0, 0);
+    transition: background-color, 0.3s;
+}
+
+.track-action:hover {
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.1);;
+}
