@@ -3,17 +3,35 @@ import "./SearchBar.css";
 
 function SearchBar()
 {
-    const songName = useState("");
+    const [searchName, setSearchName] = useState("");
+
+    function handleSearch(event)
+    {
+        event.preventDefault();
+        // Search the song!
+        SearchSong(searchName);
+    }
+
+    function SearchSong(name)
+    {
+        console.log(`Search for ${name}.`);
+    }
+
+    const handleNameChange = ((event) => {
+        setSearchName(event.target.value);
+    });
 
     return (
-        <div className="searchbar-container">
-            <div className="searchbar-input">
-                <input placeholder="Search Your Song." />
+        <form onSubmit={handleSearch}>
+            <div className="searchbar-container">
+                <div className="searchbar-input">
+                    <input placeholder="Search Your Song." onChange={handleNameChange}/>
+                </div>
+                <div className="searchbar-submit">
+                    <button type="submit">Let's go!</button>    
+                </div>    
             </div>
-            <div className="searchbar-submit">
-                <button type="submit">Let's go!</button>    
-            </div>    
-        </div>
+        </form>
     );
 }
 

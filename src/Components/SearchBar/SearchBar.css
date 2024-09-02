@@ -24,3 +24,12 @@
     font-size: 16px;
     font-weight: 600;
 }
+
+.searchbar-submit button:hover {
+    cursor: pointer;
+}
+
+.searchbar-submit button:active {
+    cursor: pointer;
+    background-color: rgb(170, 170, 170);
+}

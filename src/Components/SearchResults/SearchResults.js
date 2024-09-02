@@ -20,7 +20,7 @@ function SearchResults(props) {
     return (
         <div className="SearchResults">
             <h2 className="title">Search Result</h2>
-            <Tracklist tracks={newtrack} isRemoval={false}/>
+            <Tracklist tracks={props.searchResult} isRemoval={false} onAdd={props.onAdd} />
         </div>
     );
 }
