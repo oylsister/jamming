@@ -3,6 +3,7 @@ import '../Components/SearchBar/SearchBar';
 import SearchBar from '../Components/SearchBar/SearchBar';
 import SearchResults from '../Components/SearchResults/SearchResults';
 import Playlist from '../Components/Playlist/Playlist';
+import Spotify from '../Utils/Spotify';
 import { useCallback, useState } from 'react';
 
 const addedPlaylist = [{
@@ -26,9 +27,18 @@ const defaultSearchList = [{
 }];
 
 function JammingMain() {
-  const [searchResult, setSearchResult] = useState(defaultSearchList);
+  const [searchResult, setSearchResult] = useState([]);
   const [playlistName, setPlaylistName] = useState("New Playlist");
-  const [playlistTracks, setPlaylistTracks] = useState(addedPlaylist);
+  const [playlistTracks, setPlaylistTracks] = useState([]);
+
+  // console.log(defaultSearchList);
+
+  const search = useCallback((term) => {
+    Spotify.search(term).then(setSearchResult);
+
+    //console.log(list);
+    // setSearchResult(list);
+  }, []);
 
   const addTrack = useCallback(
     (track) => {
@@ -54,7 +64,7 @@ function JammingMain() {
       <div className='App-title'>
         <h1 className="App-name">Ja<span className='App-name-black'>mmm</span>ing</h1>
       </div>
-      <SearchBar />
+      <SearchBar onSearch={search}/>
       <div className='result-list'>
         <SearchResults searchResult={searchResult} onAdd={addTrack} />
         <Playlist playlistName={playlistName} playlistTracks={playlistTracks} OnNameChange={renamePlayList} onRemove={removeTrack}/>

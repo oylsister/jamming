@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import "./SearchBar.css";
 
-function SearchBar()
+function SearchBar(props)
 {
     const [searchName, setSearchName] = useState("");
 
@@ -9,13 +9,12 @@ function SearchBar()
     {
         event.preventDefault();
         // Search the song!
-        SearchSong(searchName);
+        SearchSong();
     }
 
-    function SearchSong(name)
-    {
-        console.log(`Search for ${name}.`);
-    }
+    const SearchSong = useCallback(() => {
+        props.onSearch(searchName);
+    }, [props.onSearch, searchName]);
 
     const handleNameChange = ((event) => {
         setSearchName(event.target.value);
