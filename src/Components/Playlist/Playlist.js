@@ -10,8 +10,9 @@ function Playlist(props) {
 
     return (
         <div className="Playlist">
-            <input className="title" onChange={handleNameChange} defaultName={"New PlayList"} />
+            <input className="title" onChange={handleNameChange} defaultValue={"New PlayList"} />
             <Tracklist tracks={props.playlistTracks} isRemoval={true} onRemove={props.onRemove}/>
+            { if()}
         </div>
     );
 }
