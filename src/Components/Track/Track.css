@@ -1,16 +1,17 @@
 .Track {
     display: flex;
     flex-direction: row;
-    background-color: aquamarine;
+    background-color: rgba(49, 17, 85, 0.808);
     max-width: 500px;
     justify-content: space-between;
 
-    border-bottom: 2px solid black;
+    border-bottom: 2px solid rgb(103, 90, 121);
 }
 
 .track-info {
     padding-left: 12px;
     text-align: left;
+    color: white
 }
 
 .track-action {
@@ -20,6 +21,7 @@
     border-style: none;
     background-color: rgba(0, 0, 0, 0);
     transition: background-color, 0.3s;
+    color: white;
 }
 
 .track-action:hover {

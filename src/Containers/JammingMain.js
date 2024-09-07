@@ -59,6 +59,14 @@ function JammingMain() {
     //console.log(`TrackListName: ${name}`);
   }, []);
 
+  const savedPlayList = useCallback(() => {
+    const trackUris = playlistTracks.map((track) => track.uri);
+    Spotify.savePlaylist(playlistName, trackUris).then(() => {
+      setPlaylistName("New Playlist");
+      setPlaylistTracks([]);
+    })
+  }, [playlistName, playlistTracks]);
+
   return (
     <div className="App">
       <div className='App-title'>
@@ -67,7 +75,7 @@ function JammingMain() {
       <SearchBar onSearch={search}/>
       <div className='result-list'>
         <SearchResults searchResult={searchResult} onAdd={addTrack} />
-        <Playlist playlistName={playlistName} playlistTracks={playlistTracks} OnNameChange={renamePlayList} onRemove={removeTrack}/>
+        <Playlist playlistName={playlistName} playlistTracks={playlistTracks} OnNameChange={renamePlayList} onRemove={removeTrack} onSave={savedPlayList}/>
       </div>
     </div>
   );
