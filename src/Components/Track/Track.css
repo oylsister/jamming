@@ -2,9 +2,7 @@
     display: flex;
     flex-direction: row;
     background-color: rgba(49, 17, 85, 0.808);
-    max-width: 500px;
     justify-content: space-between;
-
     border-bottom: 2px solid rgb(103, 90, 121);
 }
 
@@ -12,6 +10,16 @@
     padding-left: 12px;
     text-align: left;
     color: white
+}
+
+.track-name {
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+.track-details {
+    margin-top: 4px;
+    margin-bottom: 4px;
 }
 
 .track-action {

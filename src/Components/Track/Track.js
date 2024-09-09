@@ -37,8 +37,8 @@ function Track(props)
     return (
         <div className="Track">
             <div className="track-info">
-                <h3>{props.track.name}</h3>
-                <p>
+                <h3 className="track-name">{props.track.name}</h3>
+                <p className="track-details">
                     {props.track.artist} | {props.track.album}
                 </p>
             </div>

@@ -3,7 +3,8 @@
   background-image: url('../pics/pc-bg.png');
   background-size: cover;
   background-attachment: fixed;
-  height: 2700px;
+  height: 1400px;
+  padding: 0 15% 0 15%;
 }
 
 .App-name {
@@ -32,5 +33,15 @@
 .result-list {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 1020px) {
+  .result-list {
+    align-items: center;
+    flex-direction: column;
+  }
+  .App {
+    height: 1700px;
+  }
 }

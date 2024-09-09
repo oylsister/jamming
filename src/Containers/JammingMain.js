@@ -68,16 +68,18 @@ function JammingMain() {
   }, [playlistName, playlistTracks]);
 
   return (
-    <div className="App">
+    <>
       <div className='App-title'>
-        <h1 className="App-name">Ja<span className='App-name-black'>mmm</span>ing</h1>
+          <h1 className="App-name">Ja<span className='App-name-black'>mmm</span>ing</h1>
       </div>
-      <SearchBar onSearch={search}/>
-      <div className='result-list'>
-        <SearchResults searchResult={searchResult} onAdd={addTrack} />
-        <Playlist playlistName={playlistName} playlistTracks={playlistTracks} OnNameChange={renamePlayList} onRemove={removeTrack} onSave={savedPlayList}/>
+      <div className="App">
+        <SearchBar onSearch={search}/>
+        <div className='result-list'>
+          <SearchResults searchResult={searchResult} onAdd={addTrack} />
+          <Playlist playlistName={playlistName} playlistTracks={playlistTracks} OnNameChange={renamePlayList} onRemove={removeTrack} onSave={savedPlayList}/>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 

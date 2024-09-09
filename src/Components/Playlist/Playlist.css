@@ -1,28 +1,28 @@
 .Playlist {
-    display: flex;
-    flex-direction: column;
+    display: block;
+    width: 47%;
     background-color: rgba(27, 15, 59, 0.527);
-    min-width: 500px;
-    max-width: 700px;
-    margin-left: 50px;
 }
 
-.title {
+.playlist-title {
+    overflow: hidden;
     text-align: left;
     font-size: 35px;
     font-weight: bold;
-    padding-left: 15px;
-    padding-top: 3px;
+    padding-top: 7px;
     margin: 0px;
     border: 0;
     outline: 0;
     background: transparent;
     border-bottom: 1px solid #6f6f6f;
+    color: white;
+    width: 93%;
 }
 
 .button-container {
     margin-top: 15px;
     justify-content: center;
+    padding-bottom: 12px;
 }
 
 .save-button {
@@ -42,4 +42,22 @@
 .save-button:active {
     cursor: pointer;
     background-color: rgb(170, 170, 170);
+}
+
+.Playlist .Tracklist {
+    max-height: 834px;
+    overflow-y: scroll;
+}
+
+@media screen and (max-width: 1020px) {
+    .Playlist {
+        width: 100%;
+        margin: 0px;
+        height: 650px;
+    }
+
+    .Playlist .Tracklist {
+        max-height: 534px;
+        overflow-y: scroll;
+    }
 }
