@@ -30,12 +30,13 @@ function JammingMain() {
   const [searchResult, setSearchResult] = useState([]);
   const [playlistName, setPlaylistName] = useState("New Playlist");
   const [playlistTracks, setPlaylistTracks] = useState([]);
+  const [login, setLogin] = useState(false);
 
   // console.log(defaultSearchList);
 
   const search = useCallback((term) => {
     Spotify.search(term).then(setSearchResult);
-
+    Spotify.getUser();
     //console.log(list);
     // setSearchResult(list);
   }, []);
@@ -66,6 +67,10 @@ function JammingMain() {
       setPlaylistTracks([]);
     })
   }, [playlistName, playlistTracks]);
+
+  const connect = useCallback(() => {
+
+  }, []);
 
   return (
     <>

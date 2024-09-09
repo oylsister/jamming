@@ -40,13 +40,6 @@ const Spotify = {
                 return [];
             }
 
-            console.log(jsonResponse.tracks.items.map(track => ({
-                id: track.id,
-                name: track.name,
-                artist: track.artists[0].name,
-                album: track.album.name,
-                uri: track.uri})));
-
             return jsonResponse.tracks.items.map(track => ({
                 id: track.id,
                 name: track.name,
@@ -55,6 +48,30 @@ const Spotify = {
                 uri: track.uri
             }));
         });
+    },
+
+    getUser() {
+        const token = Spotify.getAccessToken();
+        return fetch(`https://api.spotify.com/v1/me`, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        }).then(response => {
+            return response.json();
+        }).then(jsonResponse => {
+            if(!jsonResponse) {
+                return;
+            }
+            let data = {
+                name: jsonResponse.display_name,
+                profile: jsonResponse.external_urls.spotify,
+                images: jsonResponse.images[0]
+            }
+
+            console.log(data);
+
+            return data;
+        })
     },
 
     savePlaylist(name, trackUris) {
