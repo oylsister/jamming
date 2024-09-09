@@ -46,9 +46,10 @@ function JammingMain() {
       if(playlistTracks.some((savedTrack) => savedTrack.name === track.name))
         return;
 
+      setSearchResult((prevTracks) => prevTracks.filter((currentTrack) => currentTrack.name !== track.name));
       setPlaylistTracks((prevTracks) => [...prevTracks, track]);
     },
-    [playlistTracks]
+    [searchResult, playlistTracks]
   );
 
   const removeTrack = useCallback((track) => {
