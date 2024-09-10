@@ -5,6 +5,7 @@ import SearchResults from '../Components/SearchResults/SearchResults';
 import Playlist from '../Components/Playlist/Playlist';
 import Spotify from '../Utils/Spotify';
 import { useCallback, useState } from 'react';
+import Account from '../Components/Account/Account';
 
 const addedPlaylist = [{
   name: "Horse With No Name",
@@ -31,6 +32,7 @@ function JammingMain() {
   const [playlistName, setPlaylistName] = useState("New Playlist");
   const [playlistTracks, setPlaylistTracks] = useState([]);
   const [login, setLogin] = useState(false);
+  const [user, setUser] = useState({});
 
   // console.log(defaultSearchList);
 
@@ -70,13 +72,27 @@ function JammingMain() {
   }, [playlistName, playlistTracks]);
 
   const connect = useCallback(() => {
+    var result = Spotify.getUser().then(setUser);
 
+    console.log(result);
+
+    if(result == -1)
+    {
+      console.log("Failed");
+      return;
+    }
+
+    setLogin(true);
+
+    console.log("This supposed to be login!");
+    console.log(user);
   }, []);
 
   return (
     <>
       <div className='App-title'>
           <h1 className="App-name">Ja<span className='App-name-black'>mmm</span>ing</h1>
+          <Account login={login} onConnect={connect} users={user}/>
       </div>
       <div className="App">
         <SearchBar onSearch={search}/>

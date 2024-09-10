@@ -1,13 +1,23 @@
-import React from "react";
+import React, { useCallback } from "react";
+import "./Account.css"
 
 function Account(props)
 {
     var isLogin = props.login
 
-    if(!login)
+    const LoginFunc = useCallback(() => {
+        props.onConnect();
+    });
+
+    function userPage()
+    {
+        window.location.replace(props.users.profile);
+    }
+
+    if(!isLogin)
     {
         return (
-            <button onClick>
+            <button className="login-button" onClick={LoginFunc}>
                 Login to Spotify!
             </button>
         );
@@ -16,10 +26,9 @@ function Account(props)
     else
     {
         return (
-            <div>
-                <img src={props.users.images}/>
-                <p>{props.users.name}</p>
-            </div>
+            <button className="login-button" onClick={userPage}>
+                Welcome! {props.users.name}
+            </button>
         );
     }
 }

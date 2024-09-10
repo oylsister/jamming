@@ -1,0 +1,21 @@
+.login-button {
+    position: fixed;
+    height: 100px;
+    width: 220px;
+    right: 0px;
+    font-size: 19px;
+    background: transparent;
+    border: None;
+    color: white;
+    transition: background-color 0.2s;
+}
+
+.login-button:hover {
+    background: rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+}
+
+.login-button:active {
+    background: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+}

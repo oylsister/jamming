@@ -60,7 +60,7 @@ const Spotify = {
             return response.json();
         }).then(jsonResponse => {
             if(!jsonResponse) {
-                return;
+                return -1;
             }
             let data = {
                 name: jsonResponse.display_name,
@@ -68,7 +68,7 @@ const Spotify = {
                 images: jsonResponse.images[0]
             }
 
-            console.log(data);
+            // console.log(data);
 
             return data;
         })
